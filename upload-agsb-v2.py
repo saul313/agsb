@@ -31,10 +31,10 @@ DEBUG_LOG = INSTALL_DIR / "python_debug.log"
 CUSTOM_DOMAIN_FILE = INSTALL_DIR / "custom_domain.txt" # 存储最终使用的域名
 
 # ====== 全局可配置参数（可直接在此处修改） ======
-USER_NAME = "kkddytd"         # 用户名
-UUID = "a91b59b6-ade4-497d-b4e9-88d184c48048"                     # UUID，留空则自动生成
-PORT = 49999                   # Vmess端口，留空或0则自动生成
-DOMAIN = "free.testlrj.ddns-ip.net"                   # 域名，留空则自动获取
+USER_NAME = "shishiceshi"         # 用户名
+UUID = "8025cc1d-6d9f-4bf6-b72e-5b7d50235cbc"                     # UUID，留空则自动生成
+PORT = 0                   # Vmess端口，留空或0则自动生成
+DOMAIN = ""                   # 域名，留空则自动获取
 CF_TOKEN = "eyJhIjoiODBmMjY5ZmQ1N2QzNzNiMmMzZTBkODc4ODg1NWM5MzIiLCJ0IjoiZmVhMzBmODUtOGY5OC00ZTVmLTkyZTktMmU2OTk2M2E1YzUyIiwicyI6Ik4yTmlZemxpTlRjdE5UVm1PQzAwTjJZekxXRmpORGt0TVdVNE5HUmtORGN3TldObSJ9"                 # Cloudflare Token，留空则用Quick Tunnel
 # =========================================
 
@@ -61,13 +61,13 @@ def http_get(url, timeout=10):
         headers = {
             'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
         }
-        req = urllib.request.Request(url, headers=headers)
-        with urllib.request.urlopen(req, context=ctx, timeout=timeout) as response:
-            return response.read().decode('utf-8')
+        req = urllib.request。Request(url, headers=headers)
+        with urllib.request。urlopen(req, context=ctx, timeout=timeout) as response:
+            return response.read()。decode('utf-8')
     except Exception as e:
         print(f"HTTP请求失败: {url}, 错误: {e}")
         write_debug_log(f"HTTP GET Error: {url}, {e}")
-        return None
+        return 无
 
 def download_file(url, target_path, mode='wb'):
     try:
@@ -77,8 +77,8 @@ def download_file(url, target_path, mode='wb'):
         headers = {
             'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
         }
-        req = urllib.request.Request(url, headers=headers)
-        with urllib.request.urlopen(req, context=ctx) as response, open(target_path, mode) as out_file:
+        req = urllib.request。Request(url, headers=headers)
+        with urllib.request。urlopen(req, context=ctx) as response, 已打开(target_path, mode) as out_file:
             shutil.copyfileobj(response, out_file)
         return True
     except Exception as e:
